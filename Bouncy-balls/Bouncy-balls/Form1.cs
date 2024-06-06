@@ -35,7 +35,7 @@ namespace Bouncy_balls
             graphics = this.CreateGraphics();
             controller = new Controller(offScreenGraphics, ClientSize);
 
-            timer1.Interval = 20; // 16 should be approximately 60 FPS, set to 1 for more updates per second
+            timer1.Interval = 16; // 16 should be approximately 60 FPS, set to 1 for more updates per second
             timer1.Start();
         }
 

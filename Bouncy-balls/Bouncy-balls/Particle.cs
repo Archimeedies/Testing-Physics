@@ -3,9 +3,9 @@ using System.Drawing;
 
 namespace BouncyBalls
 {
-    public class Ball
+    public class Particle
     {
-        private int size = 20; // Size of the ball
+        private int size = 10; // Size of the ball
         private float gravity = 0.98f; // Gravity effect on the ball
         private float damping = 0.99f; // Damping factor for energy loss
         private Graphics graphics;
@@ -14,7 +14,7 @@ namespace BouncyBalls
         private PointF velocity;
         private Brush brush;
 
-        public Ball(Graphics graphics, Size clientSize, PointF position, PointF velocity)
+        public Particle(Graphics graphics, Size clientSize, PointF position, PointF velocity)
         {
             this.graphics = graphics;
             this.clientSize = clientSize;
@@ -37,7 +37,7 @@ namespace BouncyBalls
             velocity.X *= damping;
             velocity.Y *= damping;
 
-            // Update the ball's position based on its velocity
+            // Update the particles position based on its velocity
             position.X += velocity.X;
             position.Y += velocity.Y;
 
@@ -51,7 +51,7 @@ namespace BouncyBalls
             if (position.X < 0 || position.X + size > clientSize.Width)
             {
                 velocity.X = -velocity.X * damping; // Reverse and reduce horizontal speed
-                position.X = Math.Max(0, Math.Min(position.X, clientSize.Width - size)); // Keep ball within boundaries
+                position.X = Math.Max(0, Math.Min(position.X, clientSize.Width - size)); // Keep particle within boundaries
             }
 
             if (position.Y < 0 || position.Y + size > clientSize.Height)
