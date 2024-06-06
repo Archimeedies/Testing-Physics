@@ -13,8 +13,8 @@ namespace Bouncy_balls
     public partial class Form1 : Form
     {
         // client size
-        const int WIDTH = 1000;
-        const int HEIGHT = 800;
+        const int WIDTH = 800;
+        const int HEIGHT = 600;
 
         // graphics
         private Bitmap offScreenBitmap;

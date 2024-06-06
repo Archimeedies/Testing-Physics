@@ -5,7 +5,7 @@ namespace BouncyBalls
 {
     public class Ball
     {
-        private int size = 10; // Size of the ball
+        private int size = 20; // Size of the ball
         private float gravity = 0.98f; // Gravity effect on the ball
         private float damping = 0.99f; // Damping factor for energy loss
         private Graphics graphics;

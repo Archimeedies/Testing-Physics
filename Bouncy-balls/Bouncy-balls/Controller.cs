@@ -10,19 +10,28 @@ namespace Bouncy_balls
 {
     public class Controller
     {
-        private Ball ball;
+        private List<Ball> balls = new List<Ball>();
+        private int numberOfBalls = 10;
 
         public Controller(Graphics graphics, Size clientSize)
         {
-            PointF initialPosition = new PointF(50, 50);
-            PointF initialVelocity = new PointF(0, 0);
-            ball = new Ball(graphics, clientSize, initialPosition, initialVelocity);
+            Random rand = new Random();
+
+            for (int i = 0; i < numberOfBalls; i++)
+            {
+                PointF position = new PointF(rand.Next(clientSize.Width), rand.Next(clientSize.Height));
+                PointF velocity = new PointF((float)(rand.NextDouble() * 4 - 2), (float)(rand.NextDouble() * 4 - 2));
+                balls.Add(new Ball(graphics, clientSize, position, velocity));
+            }
         }
         
         public void Update()
         {
-            ball.Draw();
-            ball.Move();
+            foreach (var ball in balls)
+            {
+                ball.Move();
+                ball.Draw();
+            }
         }
     }
 }
